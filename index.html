@@ -1,0 +1,1747 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAGA Santé - Clinique Médicale Internationale</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ===== VARIABLES ET RESET ===== */
+        :root {
+            --medical-blue: #0a2463;
+            --medical-blue-light: #1e40af;
+            --medical-blue-bright: #3b82f6;
+            --soft-green: #10b981;
+            --turquoise: #06b6d4;
+            --white: #ffffff;
+            --light-gray: #f8fafc;
+            --medium-gray: #e2e8f0;
+            --dark-gray: #334155;
+            --anthracite: #1e293b;
+            --gold: #d4af37;
+            --border-radius: 8px;
+            --border-radius-lg: 12px;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-heavy: 0 20px 40px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5 {
+            color: var(--medical-blue);
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--dark-gray);
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background-color: var(--medical-blue-bright);
+            color: var(--white);
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background-color: var(--medical-blue-light);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-secondary {
+            background-color: var(--soft-green);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--turquoise);
+        }
+
+        .whatsapp-btn {
+            background-color: #25D366;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .whatsapp-btn:hover {
+            background-color: #128C7E;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--medical-blue);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--soft-green);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--medical-blue);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--medical-blue-bright);
+        }
+
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: var(--medical-blue-bright);
+            left: 0;
+            bottom: -5px;
+            transition: var(--transition);
+        }
+
+        .nav-link:hover:after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--medical-blue);
+            cursor: pointer;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            padding: 180px 0 120px;
+            background: linear-gradient(rgba(10, 36, 99, 0.85), rgba(10, 36, 99, 0.9)), 
+                        url('https://images.unsplash.com/photo-1516549655669-df6654e435de?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') 
+                        no-repeat center center/cover;
+            color: var(--white);
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            color: var(--white);
+            margin-bottom: 25px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 50px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* ===== SPECIALTIES SECTION ===== */
+        .specialties {
+            background-color: var(--light-gray);
+        }
+
+        .specialties-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .specialty-card {
+            background-color: var(--white);
+            padding: 40px 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .specialty-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-heavy);
+        }
+
+        .specialty-card h3 {
+            margin: 20px 0 15px;
+            font-size: 1.4rem;
+        }
+
+        .specialty-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        /* ===== PRICING SECTION ===== */
+        .pricing-table {
+            overflow-x: auto;
+            margin-top: 50px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 800px;
+        }
+
+        thead {
+            background-color: var(--medical-blue);
+            color: var(--white);
+        }
+
+        th, td {
+            padding: 20px;
+            text-align: left;
+            border-bottom: 1px solid var(--medium-gray);
+        }
+
+        tr:hover {
+            background-color: rgba(59, 130, 246, 0.05);
+        }
+
+        .price {
+            font-weight: 700;
+            color: var(--medical-blue);
+        }
+
+        /* ===== APPOINTMENT SECTION ===== */
+        .appointment {
+            background-color: var(--light-gray);
+        }
+
+        .appointment-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .appointment-form {
+            background-color: var(--white);
+            padding: 50px;
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-heavy);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--medical-blue);
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid var(--medium-gray);
+            border-radius: var(--border-radius);
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--medical-blue-bright);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+        }
+
+        textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* ===== CHATBOT SECTION ===== */
+        .chatbot-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .chatbot-header {
+            background-color: var(--medical-blue);
+            color: var(--white);
+            padding: 25px 30px;
+            border-radius: var(--border-radius) var(--border-radius) 0 0;
+        }
+
+        .chatbot-header h3 {
+            color: var(--white);
+            font-size: 1.5rem;
+        }
+
+        .chatbot-body {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 0 0 var(--border-radius) var(--border-radius);
+            box-shadow: var(--shadow-heavy);
+            height: 500px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chatbot-messages {
+            flex-grow: 1;
+            overflow-y: auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: var(--border-radius);
+            margin-bottom: 20px;
+        }
+
+        .message {
+            margin-bottom: 20px;
+            max-width: 80%;
+        }
+
+        .message-patient {
+            margin-left: auto;
+        }
+
+        .message-bot {
+            margin-right: auto;
+        }
+
+        .message-content {
+            padding: 15px 20px;
+            border-radius: 20px;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .message-patient .message-content {
+            background-color: var(--medical-blue-bright);
+            color: var(--white);
+            border-top-right-radius: 5px;
+        }
+
+        .message-bot .message-content {
+            background-color: var(--light-gray);
+            color: var(--dark-gray);
+            border-top-left-radius: 5px;
+        }
+
+        .medical-translation {
+            background-color: #f0f9ff;
+            border-left: 4px solid var(--turquoise);
+            padding: 15px;
+            margin-top: 10px;
+            border-radius: 0 var(--border-radius) var(--border-radius) var(--border-radius);
+            font-size: 0.9rem;
+            color: var(--dark-gray);
+        }
+
+        .medical-translation strong {
+            color: var(--medical-blue);
+        }
+
+        .chatbot-input-area {
+            display: flex;
+            gap: 10px;
+        }
+
+        .chatbot-input {
+            flex-grow: 1;
+            padding: 15px;
+            border: 1px solid var(--medium-gray);
+            border-radius: var(--border-radius);
+            font-family: 'Inter', sans-serif;
+        }
+
+        .chatbot-send-btn {
+            padding: 15px 25px;
+            background-color: var(--medical-blue-bright);
+            color: var(--white);
+            border: none;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .chatbot-send-btn:hover {
+            background-color: var(--medical-blue-light);
+        }
+
+        /* ===== CONTACT SECTION ===== */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-top: 50px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .contact-card {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .contact-text h4 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        .map-container {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            height: 400px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background-color: var(--anthracite);
+            color: var(--white);
+            padding: 70px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 20px;
+        }
+
+        .footer-logo span {
+            color: var(--soft-green);
+        }
+
+        .footer-description {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 20px;
+        }
+
+        .footer-links h4 {
+            color: var(--white);
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--soft-green);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+
+        /* ===== MODAL ===== */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: var(--white);
+            width: 90%;
+            max-width: 500px;
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-heavy);
+        }
+
+        .modal-header {
+            background-color: var(--medical-blue);
+            color: var(--white);
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-header h3 {
+            color: var(--white);
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .modal-body {
+            padding: 30px;
+        }
+
+        .modal-message {
+            background-color: var(--light-gray);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            margin-bottom: 25px;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                flex-direction: column;
+                background-color: var(--white);
+                padding: 30px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                transition: var(--transition);
+                gap: 20px;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            .hero-btns {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .appointment-form {
+                padding: 30px 20px;
+            }
+
+            .chatbot-body {
+                padding: 20px;
+                height: 400px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 150px 0 80px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            section {
+                padding: 80px 0;
+            }
+
+            .specialty-card {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-container">
+            <a href="#" class="logo">SAGA <span>Santé</span></a>
+            
+            <button class="mobile-menu-btn" id="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <nav>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="#home" class="nav-link">Accueil</a></li>
+                    <li><a href="#specialties" class="nav-link">Spécialités</a></li>
+                    <li><a href="#pricing" class="nav-link">Tarifs</a></li>
+                    <li><a href="#appointment" class="nav-link">Rendez-vous</a></li>
+                    <li><a href="#chatbot" class="nav-link">Assistant</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Excellence Médicale Internationale</h1>
+            <p>SAGA Santé réunit expertise médicale certifiée, technologies de pointe et approche humaine personnalisée pour des soins d'exception.</p>
+            <div class="hero-btns">
+                <a href="#appointment" class="btn">Prendre rendez-vous</a>
+                <a href="#chatbot" class="btn btn-secondary">Consulter l'assistant médical</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Specialties Section -->
+    <section class="specialties" id="specialties">
+        <div class="container">
+            <h2 class="section-title">Nos Spécialités Médicales</h2>
+            <p class="section-subtitle">Un éventail complet de spécialités médicales assurées par des professionnels certifiés selon les standards internationaux.</p>
+            
+            <div class="specialties-grid">
+                <div class="specialty-card">
+                    <div class="specialty-icon">❤️</div>
+                    <h3>Cardiologie</h3>
+                    <p>Pathologies cardiovasculaires, hypertension, troubles du rythme, insuffisance cardiaque.</p>
+                </div>
+                
+                <div class="specialty-card">
+                    <div class="specialty-icon">🧠</div>
+                    <h3>Neurologie</h3>
+                    <p>Troubles neurologiques, migraines, épilepsie, maladies neurodégénératives.</p>
+                </div>
+                
+                <div class="specialty-card">
+                    <div class="specialty-icon">🦴</div>
+                    <h3>Rhumatologie</h3>
+                    <p>Pathologies articulaires, arthrose, polyarthrite, lombalgies, troubles musculo-squelettiques.</p>
+                </div>
+                
+                <div class="specialty-card">
+                    <div class="specialty-icon">🫁</div>
+                    <h3>Pneumologie</h3>
+                    <p>Maladies respiratoires, asthme, BPCO, infections pulmonaires, apnée du sommeil.</p>
+                </div>
+                
+                <div class="specialty-card">
+                    <div class="specialty-icon">🦠</div>
+                    <h3>Gastro-entérologie</h3>
+                    <p>Troubles digestifs, hépatologie, maladies inflammatoires intestinales, endoscopie.</p>
+                </div>
+                
+                <div class="specialty-card">
+                    <div class="specialty-icon">🚻</div>
+                    <h3>Urologie</h3>
+                    <p>Pathologies urinaires, troubles prostatiques, lithiase rénale, infections urologiques.</p>
+                </div>
+                
+                <div class="specialty-card">
+                    <div class="specialty-icon">♀️</div>
+                    <h3>Gynécologie</h3>
+                    <p>Santé féminine, suivi gynécologique, fertilité, ménopause, pathologies pelviennes.</p>
+                </div>
+                
+                <div class="specialty-card">
+                    <div class="specialty-icon">👶</div>
+                    <h3>Pédiatrie</h3>
+                    <p>Santé infantile, développement, vaccinations, maladies pédiatriques, suivi croissance.</p>
+                </div>
+                
+                <div class="specialty-card">
+                    <div class="specialty-icon">🧴</div>
+                    <h3>Dermatologie</h3>
+                    <p>Pathologies cutanées, eczéma, psoriasis, cancers de la peau, dermatologie esthétique.</p>
+                </div>
+                
+                <div class="specialty-card">
+                    <div class="specialty-icon">🩺</div>
+                    <h3>Médecine Générale</h3>
+                    <p>Soins primaires, prévention, suivi médical global, orientation spécialisée.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing">
+        <div class="container">
+            <h2 class="section-title">Tarification Transparente</h2>
+            <p class="section-subtitle">Des tarifs clairs et compétitifs pour tous nos services médicaux, conformes aux standards internationaux.</p>
+            
+            <div class="pricing-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Service médical</th>
+                            <th>Description</th>
+                            <th>Tarif indicatif</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Consultation générale</td>
+                            <td>Consultation avec un médecin généraliste</td>
+                            <td class="price">10 000 FCFA</td>
+                        </tr>
+                        <tr>
+                            <td>Consultation spécialisée</td>
+                            <td>Consultation avec un médecin spécialiste</td>
+                            <td class="price">20 000 FCFA</td>
+                        </tr>
+                        <tr>
+                            <td>Échographie</td>
+                            <td>Examen échographique selon zone</td>
+                            <td class="price">25 000 FCFA</td>
+                        </tr>
+                        <tr>
+                            <td>Analyses médicales</td>
+                            <td>Biologie sanguine standard</td>
+                            <td class="price">Variable selon examen</td>
+                        </tr>
+                        <tr>
+                            <td>Radiographie</td>
+                            <td>Radio standard (1 zone)</td>
+                            <td class="price">15 000 FCFA</td>
+                        </tr>
+                        <tr>
+                            <td>Consultation pédiatrique</td>
+                            <td>Consultation spécialisée enfant</td>
+                            <td class="price">18 000 FCFA</td>
+                        </tr>
+                        <tr>
+                            <td>Consultation gynécologique</td>
+                            <td>Consultation + examen gynécologique</td>
+                            <td class="price">25 000 FCFA</td>
+                        </tr>
+                        <tr>
+                            <td>Intervention chirurgicale</td>
+                            <td>Chirurgie ambulatoire</td>
+                            <td class="price">Selon diagnostic</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Appointment Section -->
+    <section class="appointment" id="appointment">
+        <div class="container appointment-container">
+            <h2 class="section-title">Prendre rendez-vous</h2>
+            <p class="section-subtitle">Remplissez ce formulaire pour prendre rendez-vous. Notre équipe vous contactera pour confirmation.</p>
+            
+            <form class="appointment-form" id="appointment-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="first-name">Prénom *</label>
+                        <input type="text" id="first-name" name="first-name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="last-name">Nom *</label>
+                        <input type="text" id="last-name" name="last-name" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="age">Âge *</label>
+                        <input type="number" id="age" name="age" min="0" max="120" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="gender">Sexe *</label>
+                        <select id="gender" name="gender" required>
+                            <option value="">Sélectionner</option>
+                            <option value="male">Masculin</option>
+                            <option value="female">Féminin</option>
+                            <option value="other">Autre</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="phone">Numéro WhatsApp *</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+229 01 92 86 57 10" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email (optionnel)</label>
+                        <input type="email" id="email" name="email">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="specialty">Spécialité souhaitée *</label>
+                    <select id="specialty" name="specialty" required>
+                        <option value="">Sélectionner une spécialité</option>
+                        <option value="general">Médecine générale 🩺</option>
+                        <option value="cardiology">Cardiologie ❤️</option>
+                        <option value="neurology">Neurologie 🧠</option>
+                        <option value="rheumatology">Rhumatologie 🦴</option>
+                        <option value="pneumology">Pneumologie 🫁</option>
+                        <option value="gastro">Gastro-entérologie 🦠</option>
+                        <option value="urology">Urologie 🚻</option>
+                        <option value="gynecology">Gynécologie ♀️</option>
+                        <option value="pediatrics">Pédiatrie 👶</option>
+                        <option value="dermatology">Dermatologie 🧴</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="problem">Description de votre problème de santé *</label>
+                    <textarea id="problem" name="problem" placeholder="Décrivez vos symptômes, leur durée, intensité et toute information pertinente..." required></textarea>
+                </div>
+                
+                <button type="button" class="btn whatsapp-btn" id="whatsapp-submit">
+                    Envoyer ma demande sur WhatsApp
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Chatbot Section -->
+    <section id="chatbot">
+        <div class="container">
+            <h2 class="section-title">Assistant Médical Intelligent</h2>
+            <p class="section-subtitle">Notre assistant médical vous aide à décrire vos symptômes avec précision et vous oriente vers la spécialité appropriée.</p>
+            
+            <div class="chatbot-container">
+                <div class="chatbot-header">
+                    <h3>Assistant médical SAGA Santé</h3>
+                </div>
+                
+                <div class="chatbot-body">
+                    <div class="chatbot-messages" id="chatbot-messages">
+                        <div class="message message-bot">
+                            <div class="message-content">
+                                Bonjour, je suis l'assistant médical de SAGA Santé. Je peux vous aider à décrire vos symptômes en langage médical professionnel et vous orienter vers la spécialité appropriée. Comment puis-je vous aider aujourd'hui ?
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="chatbot-input-area">
+                        <input type="text" class="chatbot-input" id="chatbot-input" placeholder="Décrivez vos symptômes...">
+                        <button class="chatbot-send-btn" id="chatbot-send">Envoyer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Contactez-nous</h2>
+            <p class="section-subtitle">Notre équipe est à votre disposition pour répondre à toutes vos questions et vous accompagner.</p>
+            
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <div class="contact-text">
+                            <h4>Adresse</h4>
+                            <p>Rue des Cliniques 123<br>Quartier des Médecins<br>Cotonou, Bénin</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-text">
+                            <h4>Téléphone</h4>
+                            <p>+229 01 92 86 57 10</p>
+                            <p>Urgences: +229 01 92 86 57 11</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-text">
+                            <h4>Email</h4>
+                            <p>contact@saga-sante.bj</p>
+                            <p>rendezvous@saga-sante.bj</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-text">
+                            <h4>Horaires</h4>
+                            <p>Lundi - Vendredi: 8h00 - 20h00</p>
+                            <p>Samedi: 9h00 - 16h00</p>
+                            <p>Dimanche: Urgences uniquement</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126905.29207014563!2d2.3657581486216855!3d6.370292799121259!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1023555d4d05388b%3A0xd6983d4518fb5630!2sCotonou%2C%20B%C3%A9nin!5e0!3m2!1sfr!2sfr!4v1687251317749!5m2!1sfr!2sfr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">SAGA <span>Santé</span></div>
+                    <p class="footer-description">Clinique médicale d'excellence offrant des soins de santé de qualité supérieure avec une approche humaine et des technologies de pointe.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="#home">Accueil</a></li>
+                        <li><a href="#specialties">Spécialités</a></li>
+                        <li><a href="#pricing">Tarifs</a></li>
+                        <li><a href="#appointment">Rendez-vous</a></li>
+                        <li><a href="#chatbot">Assistant</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Informations</h4>
+                    <ul>
+                        <li><a href="#" id="privacy-link">Confidentialité</a></li>
+                        <li><a href="#" id="legal-link">Mentions légales</a></li>
+                        <li><a href="#contact">Horaires d'ouverture</a></li>
+                        <li><a href="#contact">Nous contacter</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 SAGA Santé. Tous droits réservés. | Conforme aux standards internationaux de soins médicaux</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Modal -->
+    <div class="modal" id="whatsapp-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Envoi WhatsApp</h3>
+                <button class="modal-close" id="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Votre demande de rendez-vous va être envoyée à notre équipe médicale via WhatsApp.</p>
+                
+                <div class="modal-message" id="whatsapp-message">
+                    <!-- Le message WhatsApp sera généré ici -->
+                </div>
+                
+                <a href="#" class="btn whatsapp-btn" id="whatsapp-final-send" target="_blank">
+                    Ouvrir WhatsApp et envoyer
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // ==================== BASE DE CONNAISSANCES MÉDICALES PROFESSIONNELLE ====================
+        // Sources: OMS, NIH, Mayo Clinic, HAS, CIM-10
+        const medicalKnowledge = {
+            // Classification des symptômes par spécialité (CIM-10 adaptée)
+            symptomSpecialtyMapping: {
+                // ===== CARDIOLOGIE (I00-I99) =====
+                "douleur thoracique": { specialty: "Cardiologie ❤️", code: "R07", confidence: 0.9 },
+                "oppression thoracique": { specialty: "Cardiologie ❤️", code: "R07.4", confidence: 0.85 },
+                "palpitations": { specialty: "Cardiologie ❤️", code: "R00.2", confidence: 0.8 },
+                "tachycardie": { specialty: "Cardiologie ❤️", code: "R00.0", confidence: 0.9 },
+                "bradycardie": { specialty: "Cardiologie ❤️", code: "R00.1", confidence: 0.9 },
+                "essoufflement": { specialty: "Cardiologie ❤️", code: "R06.0", confidence: 0.7 },
+                "œdème des membres inférieurs": { specialty: "Cardiologie ❤️", code: "R60.9", confidence: 0.75 },
+                "syncope": { specialty: "Cardiologie ❤️", code: "R55", confidence: 0.8 },
+                
+                // ===== NEUROLOGIE (G00-G99) =====
+                "céphalée": { specialty: "Neurologie 🧠", code: "R51", confidence: 0.9 },
+                "migraine": { specialty: "Neurologie 🧠", code: "G43", confidence: 0.95 },
+                "vertige": { specialty: "Neurologie 🧠", code: "R42", confidence: 0.8 },
+                "trouble de l'équilibre": { specialty: "Neurologie 🧠", code: "R27", confidence: 0.85 },
+                "paresthésie": { specialty: "Neurologie 🧠", code: "R20.2", confidence: 0.9 },
+                "paralysie": { specialty: "Neurologie 🧠", code: "G83", confidence: 0.95 },
+                "tremblement": { specialty: "Neurologie 🧠", code: "R25.1", confidence: 0.8 },
+                "trouble de la mémoire": { specialty: "Neurologie 🧠", code: "R41.3", confidence: 0.75 },
+                
+                // ===== RHUMATOLOGIE/ORTHOPÉDIE (M00-M99) =====
+                "arthralgie": { specialty: "Rhumatologie 🦴", code: "M25.5", confidence: 0.9 },
+                "douleur articulaire": { specialty: "Rhumatologie 🦴", code: "M25.5", confidence: 0.9 },
+                "gonflement articulaire": { specialty: "Rhumatologie 🦴", code: "M25.4", confidence: 0.85 },
+                "raideur articulaire": { specialty: "Rhumatologie 🦴", code: "M25.6", confidence: 0.8 },
+                "douleur lombaire": { specialty: "Rhumatologie 🦴", code: "M54.5", confidence: 0.9 },
+                "lombalgie": { specialty: "Rhumatologie 🦴", code: "M54.5", confidence: 0.9 },
+                "douleur cervicale": { specialty: "Rhumatologie 🦴", code: "M54.2", confidence: 0.85 },
+                "douleur de la hanche": { specialty: "Rhumatologie 🦴", code: "M25.5", confidence: 0.9 },
+                "limitation de la marche": { specialty: "Rhumatologie 🦴", code: "R26.2", confidence: 0.8 },
+                
+                // ===== PNEUMOLOGIE (J00-J99) =====
+                "dyspnée": { specialty: "Pneumologie 🫁", code: "R06.0", confidence: 0.9 },
+                "toux": { specialty: "Pneumologie 🫁", code: "R05", confidence: 0.8 },
+                "expectoration": { specialty: "Pneumologie 🫁", code: "R09.3", confidence: 0.75 },
+                "douleur thoracique à la respiration": { specialty: "Pneumologie 🫁", code: "R07.1", confidence: 0.85 },
+                "wheezing": { specialty: "Pneumologie 🫁", code: "R06.2", confidence: 0.8 },
+                "hémoptysie": { specialty: "Pneumologie 🫁", code: "R04.2", confidence: 0.95 },
+                
+                // ===== GASTRO-ENTÉROLOGIE (K00-K93) =====
+                "douleur abdominale": { specialty: "Gastro-entérologie 🦠", code: "R10", confidence: 0.9 },
+                "nausée": { specialty: "Gastro-entérologie 🦠", code: "R11", confidence: 0.8 },
+                "vomissement": { specialty: "Gastro-entérologie 🦠", code: "R11", confidence: 0.85 },
+                "diarrhée": { specialty: "Gastro-entérologie 🦠", code: "R19.7", confidence: 0.9 },
+                "constipation": { specialty: "Gastro-entérologie 🦠", code: "K59.0", confidence: 0.9 },
+                "reflux": { specialty: "Gastro-entérologie 🦠", code: "R12", confidence: 0.85 },
+                "dysphagie": { specialty: "Gastro-entérologie 🦠", code: "R13", confidence: 0.9 },
+                
+                // ===== UROLOGIE (N00-N99) =====
+                "dysurie": { specialty: "Urologie 🚻", code: "R30.0", confidence: 0.9 },
+                "pollakiurie": { specialty: "Urologie 🚻", code: "R35", confidence: 0.85 },
+                "hématurie": { specialty: "Urologie 🚻", code: "R31", confidence: 0.95 },
+                "douleur lombaire aiguë": { specialty: "Urologie 🚻", code: "N23", confidence: 0.8 },
+                "colique néphrétique": { specialty: "Urologie 🚻", code: "N23", confidence: 0.95 },
+                "rétention urinaire": { specialty: "Urologie 🚻", code: "R33", confidence: 0.9 },
+                
+                // ===== GYNÉCOLOGIE (N70-N98) =====
+                "dysménorrhée": { specialty: "Gynécologie ♀️", code: "N94.4", confidence: 0.9 },
+                "aménorrhée": { specialty: "Gynécologie ♀️", code: "N91", confidence: 0.95 },
+                "ménorragie": { specialty: "Gynécologie ♀️", code: "N92.0", confidence: 0.9 },
+                "leucorrhée": { specialty: "Gynécologie ♀️", code: "N89.8", confidence: 0.8 },
+                "douleur pelvienne": { specialty: "Gynécologie ♀️", code: "R10.2", confidence: 0.9 },
+                "dyspareunie": { specialty: "Gynécologie ♀️", code: "N94.1", confidence: 0.85 },
+                
+                // ===== PÉDIATRIE (P00-P96) =====
+                "fièvre chez l'enfant": { specialty: "Pédiatrie 👶", code: "R50.9", confidence: 0.8 },
+                "retard de croissance": { specialty: "Pédiatrie 👶", code: "R62.8", confidence: 0.9 },
+                "trouble du développement": { specialty: "Pédiatrie 👶", code: "F88", confidence: 0.85 },
+                "pleurs inconsolables": { specialty: "Pédiatrie 👶", code: "R68.11", confidence: 0.7 },
+                
+                // ===== DERMATOLOGIE (L00-L99) =====
+                "prurit": { specialty: "Dermatologie 🧴", code: "L29", confidence: 0.9 },
+                "éruption cutanée": { specialty: "Dermatologie 🧴", code: "R21", confidence: 0.95 },
+                "lésion cutanée": { specialty: "Dermatologie 🧴", code: "R23", confidence: 0.9 },
+                "eczéma": { specialty: "Dermatologie 🧴", code: "L20-L30", confidence: 0.95 },
+                "psoriasis": { specialty: "Dermatologie 🧴", code: "L40", confidence: 0.95 },
+                "urticaire": { specialty: "Dermatologie 🧴", code: "L50", confidence: 0.9 },
+                
+                // ===== MÉDECINE GÉNÉRALE (R00-R99) =====
+                "fièvre": { specialty: "Médecine générale 🩺", code: "R50.9", confidence: 0.8 },
+                "fatigue": { specialty: "Médecine générale 🩺", code: "R53", confidence: 0.7 },
+                "asthénie": { specialty: "Médecine générale 🩺", code: "R53", confidence: 0.8 },
+                "perte d'appétit": { specialty: "Médecine générale 🩺", code: "R63.0", confidence: 0.75 },
+                "amaigrissement": { specialty: "Médecine générale 🩺", code: "R63.4", confidence: 0.85 }
+            },
+            
+            // Table de correspondance des termes patients vers termes médicaux
+            patientToMedicalTerms: {
+                // Cardiologie
+                "mal au cœur": "douleur thoracique",
+                "coeur qui bat vite": "tachycardie",
+                "coeur qui bat fort": "palpitations",
+                "j'ai du mal à respirer": "dyspnée",
+                "essoufflé": "dyspnée",
+                "jambes gonflées": "œdème des membres inférieurs",
+                
+                // Neurologie
+                "mal à la tête": "céphalée",
+                "maux de tête": "céphalée",
+                "la tête qui tourne": "vertige",
+                "fourmillements": "paresthésie",
+                "engourdissement": "paresthésie",
+                
+                // Rhumatologie
+                "mal aux articulations": "arthralgie",
+                "articulations douloureuses": "arthralgie",
+                "mal au dos": "lombalgie",
+                "mal aux reins": "douleur lombaire",
+                "hanche douloureuse": "douleur de la hanche",
+                "ne plus marcher correctement": "limitation de la marche",
+                "au-dessus des fesses": "douleur de la région lombo-sacrée",
+                
+                // Pneumologie
+                "tousser": "toux",
+                "cracher": "expectoration",
+                "sifflement respiratoire": "wheezing",
+                
+                // Gastro-entérologie
+                "mal au ventre": "douleur abdominale",
+                "ventre qui fait mal": "douleur abdominale",
+                "envie de vomir": "nausée",
+                "diarrhée": "diarrhée",
+                "constipé": "constipation",
+                "brûlures d'estomac": "reflux",
+                
+                // Urologie
+                "difficulté à uriner": "dysurie",
+                "brûle quand je pisse": "dysurie",
+                "envie fréquente d'uriner": "pollakiurie",
+                "sang dans les urines": "hématurie",
+                
+                // Gynécologie
+                "règles douloureuses": "dysménorrhée",
+                "absence de règles": "aménorrhée",
+                "règles abondantes": "ménorragie",
+                "pertes blanches": "leucorrhée",
+                "mal en bas du ventre": "douleur pelvienne",
+                
+                // Pédiatrie
+                "enfant fiévreux": "fièvre chez l'enfant",
+                "bébé qui pleure": "pleurs inconsolables",
+                
+                // Dermatologie
+                "ça gratte": "prurit",
+                "démangeaisons": "prurit",
+                "boutons": "éruption cutanée",
+                "plaques rouges": "lésion cutanée",
+                
+                // Général
+                "de la fièvre": "fièvre",
+                "j'ai de la température": "fièvre",
+                "fatigué": "fatigue",
+                "épuisé": "asthénie",
+                "perte de poids": "amaigrissement"
+            },
+            
+            // Phrases de réponses professionnelles
+            professionalResponses: {
+                recognizedSymptoms: {
+                    greeting: "Je comprends votre gêne et cela peut être très inconfortable.",
+                    explanation: "Les éléments décrits correspondent à",
+                    orientation: "Ce type de symptôme est généralement pris en charge par le service de",
+                    recommendation: "Une consultation permettra d'évaluer précisément la cause et de proposer un traitement adapté."
+                },
+                unrecognizedSymptoms: "Je comprends votre situation et votre inconfort. Pour garantir une prise en charge adaptée et sécurisée, la meilleure solution est de prendre rendez-vous afin qu'un professionnel de santé puisse vous examiner et vous orienter correctement.",
+                noDiagnosis: "Je ne peux pas poser de diagnostic médical, mais je peux vous orienter vers la spécialité adaptée pour une évaluation complète."
+            }
+        };
+
+        // Variables globales
+        let currentAppointmentData = {
+            firstName: "",
+            lastName: "",
+            age: "",
+            gender: "",
+            phone: "",
+            email: "",
+            specialty: "",
+            problem: "",
+            medicalTranslation: ""
+        };
+
+        // DOM Elements
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const navMenu = document.getElementById('nav-menu');
+        const appointmentForm = document.getElementById('appointment-form');
+        const chatbotMessages = document.getElementById('chatbot-messages');
+        const chatbotInput = document.getElementById('chatbot-input');
+        const chatbotSend = document.getElementById('chatbot-send');
+        const whatsappModal = document.getElementById('whatsapp-modal');
+        const modalClose = document.getElementById('modal-close');
+        const whatsappFinalSend = document.getElementById('whatsapp-final-send');
+        const whatsappMessage = document.getElementById('whatsapp-message');
+        const whatsappSubmit = document.getElementById('whatsapp-submit');
+
+        // ==================== FONCTIONS DU CHATBOT MÉDICAL PROFESSIONNEL ====================
+
+        // Normalisation du texte pour la recherche
+        function normalizeText(text) {
+            return text.toLowerCase()
+                .normalize("NFD").replace(/[\u0300-\u036f]/g, "") // Supprime les accents
+                .replace(/[^\w\s]/g, ' ') // Remplace la ponctuation par des espaces
+                .replace(/\s+/g, ' ') // Supprime les espaces multiples
+                .trim();
+        }
+
+        // Détection des mots-clés de contexte
+        function detectContextKeywords(text) {
+            const normalized = normalizeText(text);
+            const context = {
+                hasLocalization: false,
+                hasPain: false,
+                hasDuration: false,
+                hasFunctionalImpairment: false,
+                duration: ""
+            };
+            
+            // Détection de localisation
+            const localizationKeywords = [
+                'tête', 'thorax', 'poitrine', 'ventre', 'abdomen', 'dos', 'lombes', 'rein',
+                'hanche', 'fesse', 'fesses', 'épaule', 'coude', 'poignet', 'main', 'doigt',
+                'hanches', 'genou', 'cheville', 'pied', 'orteil', 'nuque', 'cou', 'gorge',
+                'estomac', 'intestin', 'vessie', 'urinaire', 'pelvien', 'pelvienne'
+            ];
+            
+            // Détection de douleur
+            const painKeywords = [
+                'douleur', 'mal', 'souffre', 'souffrance', 'gêne', 'inconfort', 'brûlure',
+                'picotement', 'fourmillement', 'déchirement', 'crampe', 'spasme', 'raideur',
+                'engourdissement', 'sensibilité'
+            ];
+            
+            // Détection de durée
+            const durationKeywords = [
+                'depuis', 'pendant', 'depuis hier', 'depuis 2 jours', 'depuis 3 jours',
+                'depuis une semaine', 'depuis 2 semaines', 'depuis un mois', 'chronique',
+                'aigu', 'soudain', 'progressif', 'intermittent', 'permanent'
+            ];
+            
+            // Détection d'atteinte fonctionnelle
+            const functionalKeywords = [
+                'marcher', 'marcher correctement', 'bouger', 'se déplacer', 'respirer',
+                'respirer normalement', 'uriner', 'déféquer', 'manger', 'avaler', 'dormir',
+                'parler', 'voir', 'entendre', 'concentrer', 'travailler'
+            ];
+            
+            // Vérification des contextes
+            context.hasLocalization = localizationKeywords.some(keyword => normalized.includes(keyword));
+            context.hasPain = painKeywords.some(keyword => normalized.includes(keyword));
+            context.hasDuration = durationKeywords.some(keyword => normalized.includes(keyword));
+            
+            // Extraction de la durée si présente
+            const durationMatch = normalized.match(/(depuis|pendant)\s+([^,\.]+)/);
+            if (durationMatch) {
+                context.duration = durationMatch[0];
+                context.hasDuration = true;
+            }
+            
+            context.hasFunctionalImpairment = functionalKeywords.some(keyword => normalized.includes(keyword));
+            
+            return context;
+        }
+
+        // Analyse médicale professionnelle
+        function analyzeMedicalText(userMessage) {
+            const normalizedMessage = normalizeText(userMessage);
+            const context = detectContextKeywords(userMessage);
+            
+            let foundSymptoms = [];
+            let medicalTerms = [];
+            let specialties = new Set();
+            let confidenceScore = 0;
+            
+            // Étape 1: Recherche des termes médicaux reconnus
+            for (const [medicalTerm, data] of Object.entries(medicalKnowledge.symptomSpecialtyMapping)) {
+                const normalizedMedicalTerm = normalizeText(medicalTerm);
+                
+                if (normalizedMessage.includes(normalizedMedicalTerm)) {
+                    foundSymptoms.push(medicalTerm);
+                    specialties.add(data.specialty);
+                    confidenceScore += data.confidence;
+                }
+            }
+            
+            // Étape 2: Recherche des termes patients et conversion en termes médicaux
+            for (const [patientTerm, medicalTerm] of Object.entries(medicalKnowledge.patientToMedicalTerms)) {
+                const normalizedPatientTerm = normalizeText(patientTerm);
+                
+                if (normalizedMessage.includes(normalizedPatientTerm)) {
+                    // Vérifier si le terme médical correspondant est dans notre base
+                    if (medicalKnowledge.symptomSpecialtyMapping[medicalTerm]) {
+                        foundSymptoms.push(medicalTerm);
+                        medicalTerms.push(medicalTerm);
+                        const specialtyData = medicalKnowledge.symptomSpecialtyMapping[medicalTerm];
+                        specialties.add(specialtyData.specialty);
+                        confidenceScore += specialtyData.confidence * 0.8; // Réduction de confiance pour conversion
+                    }
+                }
+            }
+            
+            // Élimination des doublons
+            foundSymptoms = [...new Set(foundSymptoms)];
+            medicalTerms = [...new Set(medicalTerms)];
+            
+            return {
+                foundSymptoms,
+                medicalTerms: medicalTerms.length > 0 ? medicalTerms : foundSymptoms,
+                specialties: Array.from(specialties),
+                confidenceScore: confidenceScore / Math.max(foundSymptoms.length, 1),
+                context,
+                hasRecognizedSymptoms: foundSymptoms.length > 0
+            };
+        }
+
+        // Génération de la réponse médicale professionnelle
+        function generateMedicalResponse(analysis, userMessage) {
+            // RÈGLE CRITIQUE: Si symptômes non reconnus ou insuffisants
+            if (!analysis.hasRecognizedSymptoms || analysis.confidenceScore < 0.5) {
+                return {
+                    response: medicalKnowledge.professionalResponses.unrecognizedSymptoms,
+                    medicalTranslation: null,
+                    shouldShowTranslation: false
+                };
+            }
+            
+            // Construction de la réponse pour symptômes reconnus
+            const { professionalResponses } = medicalKnowledge;
+            
+            // Détermination de la spécialité principale
+            let primarySpecialty = "Médecine générale 🩺";
+            if (analysis.specialties.length > 0) {
+                // Priorité aux spécialités spécifiques
+                const nonGeneralSpecialties = analysis.specialties.filter(s => !s.includes("Médecine générale"));
+                primarySpecialty = nonGeneralSpecialties.length > 0 ? nonGeneralSpecialties[0] : analysis.specialties[0];
+            }
+            
+            // Construction du message
+            let response = professionalResponses.recognizedSymptoms.greeting + " ";
+            
+            // Ajout de la description médicale
+            if (analysis.medicalTerms.length > 0) {
+                const symptomsText = analysis.medicalTerms.join(', ');
+                response += professionalResponses.recognizedSymptoms.explanation + " " + symptomsText + ". ";
+            }
+            
+            // Ajout de l'orientation
+            response += professionalResponses.recognizedSymptoms.orientation + " " + primarySpecialty + ", ";
+            
+            // Ajout de la justification selon le contexte
+            if (analysis.context.hasFunctionalImpairment) {
+                response += "spécialisés dans les troubles fonctionnels. ";
+            } else {
+                response += "spécialisés dans ce type de manifestations. ";
+            }
+            
+            // Ajout de la recommandation finale
+            response += professionalResponses.recognizedSymptoms.recommendation;
+            
+            // Génération de la traduction médicale
+            let medicalTranslation = "";
+            if (analysis.medicalTerms.length > 0) {
+                medicalTranslation = `Présentation clinique : ${analysis.medicalTerms.join(', ')}.`;
+                
+                if (analysis.context.hasDuration) {
+                    medicalTranslation += ` Évolution : ${analysis.context.duration}.`;
+                }
+                
+                if (analysis.context.hasFunctionalImpairment) {
+                    medicalTranslation += " Atteinte fonctionnelle rapportée.";
+                }
+                
+                // Ajout des codes CIM-10 si disponibles
+                const icdCodes = analysis.foundSymptoms
+                    .map(symptom => medicalKnowledge.symptomSpecialtyMapping[symptom]?.code)
+                    .filter(code => code)
+                    .join(', ');
+                
+                if (icdCodes) {
+                    medicalTranslation += ` Codes CIM-10 concernés : ${icdCodes}.`;
+                }
+            }
+            
+            return {
+                response,
+                medicalTranslation,
+                shouldShowTranslation: true,
+                primarySpecialty
+            };
+        }
+
+        // ==================== INTERFACE CHATBOT ====================
+
+        function addMessageToChat(sender, message, medicalTranslation = null) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message message-${sender}`;
+            
+            const messageContent = document.createElement('div');
+            messageContent.className = 'message-content';
+            messageContent.textContent = message;
+            
+            messageDiv.appendChild(messageContent);
+            
+            if (medicalTranslation && sender === 'bot') {
+                const translationDiv = document.createElement('div');
+                translationDiv.className = 'medical-translation';
+                translationDiv.innerHTML = `<strong>Description médicale professionnelle :</strong> ${medicalTranslation}`;
+                messageDiv.appendChild(translationDiv);
+            }
+            
+            chatbotMessages.appendChild(messageDiv);
+            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+        }
+
+        // Gestion de l'envoi de message dans le chatbot
+        chatbotSend.addEventListener('click', function() {
+            const userMessage = chatbotInput.value.trim();
+            if (!userMessage) return;
+            
+            // Ajouter le message de l'utilisateur
+            addMessageToChat('patient', userMessage);
+            chatbotInput.value = '';
+            
+            // Analyser les symptômes avec le système médical professionnel
+            const analysis = analyzeMedicalText(userMessage);
+            
+            // Générer et envoyer la réponse après un délai réaliste
+            setTimeout(() => {
+                const botResponse = generateMedicalResponse(analysis, userMessage);
+                addMessageToChat('bot', botResponse.response, botResponse.medicalTranslation);
+                
+                // Stocker la traduction médicale pour le formulaire
+                if (botResponse.medicalTranslation) {
+                    currentAppointmentData.medicalTranslation = botResponse.medicalTranslation;
+                    
+                    // Si une spécialité a été identifiée, la suggérer dans le formulaire
+                    if (botResponse.primarySpecialty) {
+                        const specialtySelect = document.getElementById('specialty');
+                        const specialtyText = botResponse.primarySpecialty.split(' ')[0];
+                        
+                        for (let i = 0; i < specialtySelect.options.length; i++) {
+                            if (specialtySelect.options[i].text.includes(specialtyText)) {
+                                specialtySelect.selectedIndex = i;
+                                break;
+                            }
+                        }
+                    }
+                }
+            }, 1000);
+        });
+
+        // Entrée pour envoyer le message
+        chatbotInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                chatbotSend.click();
+            }
+        });
+
+        // ==================== FORMULAIRE ET WHATSAPP ====================
+
+        whatsappSubmit.addEventListener('click', function() {
+            // Récupérer les données du formulaire
+            const firstName = document.getElementById('first-name').value;
+            const lastName = document.getElementById('last-name').value;
+            const age = document.getElementById('age').value;
+            const gender = document.getElementById('gender').value;
+            const phone = document.getElementById('phone').value;
+            const email = document.getElementById('email').value;
+            const specialty = document.getElementById('specialty').value;
+            const problem = document.getElementById('problem').value;
+            
+            // Validation basique
+            if (!firstName || !lastName || !age || !gender || !phone || !specialty || !problem) {
+                alert("Veuillez remplir tous les champs obligatoires.");
+                return;
+            }
+            
+            // Analyser les symptômes pour une reformulation
+            const analysis = analyzeMedicalText(problem);
+            const botResponse = generateMedicalResponse(analysis, problem);
+            
+            // Préparer les données
+            currentAppointmentData = {
+                firstName,
+                lastName,
+                age,
+                gender: gender === 'male' ? 'Masculin' : gender === 'female' ? 'Féminin' : 'Autre',
+                phone,
+                email: email || 'Non renseigné',
+                specialty: document.getElementById('specialty').options[document.getElementById('specialty').selectedIndex].text,
+                problem,
+                medicalTranslation: botResponse.medicalTranslation || `Description patient : "${problem}"`
+            };
+            
+            // Générer le message WhatsApp
+            generateWhatsAppMessage();
+            
+            // Afficher la modal
+            whatsappModal.style.display = 'flex';
+        });
+
+        // Générer le message WhatsApp
+        function generateWhatsAppMessage() {
+            let message = `*NOUVELLE DEMANDE DE RENDEZ-VOUS - SAGA Santé*\n\n`;
+            message += `*IDENTIFICATION :*\n`;
+            message += `Patient : ${currentAppointmentData.firstName} ${currentAppointmentData.lastName}\n`;
+            message += `Âge : ${currentAppointmentData.age} ans | Sexe : ${currentAppointmentData.gender}\n`;
+            message += `Contact : ${currentAppointmentData.phone}\n`;
+            message += `Email : ${currentAppointmentData.email}\n\n`;
+            
+            message += `*SPÉCIALITÉ SOUHAITÉE :*\n${currentAppointmentData.specialty}\n\n`;
+            
+            message += `*DESCRIPTION DU PATIENT :*\n${currentAppointmentData.problem}\n\n`;
+            
+            message += `*ANALYSE MÉDICALE :*\n${currentAppointmentData.medicalTranslation}\n\n`;
+            
+            message += `---\n`;
+            message += `*DATE DE LA DEMANDE :* ${new Date().toLocaleDateString('fr-FR')}\n`;
+            message += `*À CONFIRMER PAR L'ÉQUIPE MÉDICALE*`;
+            
+            whatsappMessage.textContent = message;
+            
+            // Préparer le lien WhatsApp
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappLink = `https://wa.me/2290192865710?text=${encodedMessage}`;
+            whatsappFinalSend.href = whatsappLink;
+        }
+
+        // ==================== GESTION DE L'INTERFACE ====================
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.05)';
+            }
+        });
+
+        // Mobile menu toggle
+        mobileMenuBtn.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function() {
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Gestion des modales
+        modalClose.addEventListener('click', function() {
+            whatsappModal.style.display = 'none';
+        });
+
+        window.addEventListener('click', function(e) {
+            if (e.target === whatsappModal) {
+                whatsappModal.style.display = 'none';
+            }
+        });
+
+        // Initialisation du chatbot
+        window.addEventListener('DOMContentLoaded', function() {
+            // Ajouter un message de bienvenue supplémentaire
+            setTimeout(() => {
+                addMessageToChat('bot', "Je suis un assistant médical professionnel. Je peux analyser vos symptômes, les reformuler en langage médical et vous orienter vers la spécialité appropriée selon les classifications médicales internationales (CIM-10).");
+            }, 2000);
+            
+            // Configurer le menu mobile
+            const menuBtn = document.getElementById('mobile-menu-btn');
+            menuBtn.innerHTML = '<span></span><span></span><span></span>';
+            
+            // Ajout d'exemples de symptômes dans le placeholder
+            const examples = [
+                "Ex: Ma hanche me fait mal surtout au-dessus des fesses...",
+                "Ex: J'ai des douleurs thoraciques et des palpitations...",
+                "Ex: Des boutons qui grattent depuis plusieurs jours..."
+            ];
+            let currentExample = 0;
+            
+            chatbotInput.placeholder = examples[currentExample];
+            
+            setInterval(() => {
+                currentExample = (currentExample + 1) % examples.length;
+                chatbotInput.placeholder = examples[currentExample];
+            }, 3000);
+        });
+
+        // Animation d'apparition des sections
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observer les sections pour l'animation
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(section);
+        });
+
+        // ==================== TESTS DE FONCTIONNEMENT ====================
+        // Tests automatiques du chatbot
+        function testChatbot() {
+            const testCases = [
+                {
+                    input: "Ma hanche me fait mal surtout au-dessus des fesses et je n'arrive plus à marcher correctement. Ça a commencé depuis hier.",
+                    expectedSpecialty: "Rhumatologie 🦴"
+                },
+                {
+                    input: "J'ai mal au ventre et je n'arrive pas à uriner",
+                    expectedSpecialty: "Urologie 🚻"
+                },
+                {
+                    input: "Des boutons qui grattent depuis plusieurs jours",
+                    expectedSpecialty: "Dermatologie 🧴"
+                },
+                {
+                    input: "Douleur thoracique et essoufflement",
+                    expectedSpecialty: "Cardiologie ❤️"
+                },
+                {
+                    input: "Maux de tête persistants avec vertiges",
+                    expectedSpecialty: "Neurologie 🧠"
+                }
+            ];
+            
+            console.log("=== TESTS DU CHATBOT MÉDICAL ===");
+            testCases.forEach((testCase, index) => {
+                const analysis = analyzeMedicalText(testCase.input);
+                const response = generateMedicalResponse(analysis, testCase.input);
+                
+                console.log(`Test ${index + 1}: ${testCase.input.substring(0, 50)}...`);
+                console.log(`- Spécialité détectée: ${analysis.specialties.length > 0 ? analysis.specialties[0] : 'Aucune'}`);
+                console.log(`- Spécialité attendue: ${testCase.expectedSpecialty}`);
+                console.log(`- Symptômes reconnus: ${analysis.foundSymptoms.length > 0 ? 'OUI' : 'NON'}`);
+                console.log(`- Réponse générée: ${response.response.substring(0, 80)}...`);
+                console.log(`- Test ${analysis.specialties.includes(testCase.expectedSpecialty) ? '✓ PASSÉ' : '✗ ÉCHOUÉ'}\n`);
+            });
+        }
+        
+        // Exécuter les tests au chargement
+        window.addEventListener('load', testChatbot);
+    </script>
+</body>
+</html>
